@@ -18,7 +18,7 @@ namespace Final_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPenemu2());
+            Application.Run(new Login());
         }
     }
 }
