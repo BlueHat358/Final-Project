@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Entity\EntAdmin.cs" />
     <Compile Include="Entity\EntBarang.cs" />
+    <Compile Include="Entity\EntData.cs" />
     <Compile Include="Entity\EntLokasi.cs" />
     <Compile Include="Entity\EntPelapor.cs" />
     <Compile Include="Entity\EntPenemu.cs" />
@@ -80,6 +81,12 @@
     </Compile>
     <Compile Include="UI\Lokasi.Designer.cs">
       <DependentUpon>Lokasi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LokasiPenemu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LokasiPenemu.Designer.cs">
+      <DependentUpon>LokasiPenemu.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\LupaPassword.cs">
       <SubType>Form</SubType>
@@ -148,6 +155,9 @@
     <EmbeddedResource Include="UI\Lokasi.resx">
       <DependentUpon>Lokasi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\LokasiPenemu.resx">
+      <DependentUpon>LokasiPenemu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\LupaPassword.resx">
       <DependentUpon>LupaPassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,6 +200,9 @@
     <Content Include="Pict\back.jpg" />
     <Content Include="Pict\design Login1.jpg" />
     <Content Include="Pict\Logo Pencarian Barang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

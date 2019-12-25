@@ -10,5 +10,6 @@ namespace Final_Project.Interface {
         bool InsertData(EntPelapor e, EntLokasi loc);
         bool UpdateData(EntPelapor e);
         bool DeleteData(String[] id);
+        EntData Search(String nama);
     }
 }

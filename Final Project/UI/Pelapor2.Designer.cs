@@ -33,7 +33,7 @@
             this.btnRuang = new System.Windows.Forms.Button();
             this.btnPelapor = new System.Windows.Forms.Button();
             this.btnPenemu = new System.Windows.Forms.Button();
-            this.btnHome = new System.Windows.Forms.Button();
+            this.btnBarang = new System.Windows.Forms.Button();
             this.btnHapus = new System.Windows.Forms.Button();
             this.btnUbah = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -46,6 +46,8 @@
             this.nama_barang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.no_telp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtCari = new System.Windows.Forms.TextBox();
+            this.btnCari = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPelapor)).BeginInit();
@@ -58,7 +60,7 @@
             this.panel1.Controls.Add(this.btnRuang);
             this.panel1.Controls.Add(this.btnPelapor);
             this.panel1.Controls.Add(this.btnPenemu);
-            this.panel1.Controls.Add(this.btnHome);
+            this.panel1.Controls.Add(this.btnBarang);
             this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
@@ -120,26 +122,26 @@
             this.btnPenemu.UseVisualStyleBackColor = false;
             this.btnPenemu.Click += new System.EventHandler(this.btnPenemu_Click);
             // 
-            // btnHome
+            // btnBarang
             // 
-            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(194)))));
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnHome.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnHome.Location = new System.Drawing.Point(8, 26);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(2);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(142, 38);
-            this.btnHome.TabIndex = 0;
-            this.btnHome.Text = "HOME";
-            this.btnHome.UseVisualStyleBackColor = false;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            this.btnBarang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(194)))));
+            this.btnBarang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBarang.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBarang.Location = new System.Drawing.Point(8, 26);
+            this.btnBarang.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBarang.Name = "btnBarang";
+            this.btnBarang.Size = new System.Drawing.Size(142, 38);
+            this.btnBarang.TabIndex = 0;
+            this.btnBarang.Text = "BARANG";
+            this.btnBarang.UseVisualStyleBackColor = false;
+            this.btnBarang.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // btnHapus
             // 
             this.btnHapus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(80)))), ((int)(((byte)(74)))));
             this.btnHapus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnHapus.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnHapus.Location = new System.Drawing.Point(481, 301);
+            this.btnHapus.Location = new System.Drawing.Point(482, 316);
             this.btnHapus.Margin = new System.Windows.Forms.Padding(2);
             this.btnHapus.Name = "btnHapus";
             this.btnHapus.Size = new System.Drawing.Size(87, 39);
@@ -153,7 +155,7 @@
             this.btnUbah.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(194)))));
             this.btnUbah.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUbah.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnUbah.Location = new System.Drawing.Point(190, 301);
+            this.btnUbah.Location = new System.Drawing.Point(191, 316);
             this.btnUbah.Margin = new System.Windows.Forms.Padding(2);
             this.btnUbah.Name = "btnUbah";
             this.btnUbah.Size = new System.Drawing.Size(87, 39);
@@ -166,7 +168,7 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.Controls.Add(this.dgvPelapor);
-            this.panel2.Location = new System.Drawing.Point(174, 17);
+            this.panel2.Location = new System.Drawing.Point(172, 41);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(417, 261);
@@ -229,12 +231,34 @@
             this.status.HeaderText = "Status";
             this.status.Name = "status";
             // 
+            // txtCari
+            // 
+            this.txtCari.Location = new System.Drawing.Point(411, 12);
+            this.txtCari.Name = "txtCari";
+            this.txtCari.Size = new System.Drawing.Size(100, 20);
+            this.txtCari.TabIndex = 9;
+            this.txtCari.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnCari
+            // 
+            this.btnCari.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnCari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCari.Location = new System.Drawing.Point(517, 10);
+            this.btnCari.Name = "btnCari";
+            this.btnCari.Size = new System.Drawing.Size(75, 23);
+            this.btnCari.TabIndex = 10;
+            this.btnCari.Text = "Cari";
+            this.btnCari.UseVisualStyleBackColor = false;
+            this.btnCari.Click += new System.EventHandler(this.BtnCari_Click);
+            // 
             // frmPelapor2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.btnCari);
+            this.Controls.Add(this.txtCari);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnHapus);
             this.Controls.Add(this.btnUbah);
@@ -247,6 +271,7 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPelapor)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -256,7 +281,7 @@
         private System.Windows.Forms.Button btnRuang;
         private System.Windows.Forms.Button btnPelapor;
         private System.Windows.Forms.Button btnPenemu;
-        private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.Button btnBarang;
         private System.Windows.Forms.Button btnHapus;
         private System.Windows.Forms.Button btnUbah;
         protected internal System.Windows.Forms.Button btnLogOut;
@@ -270,5 +295,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nama_barang;
         private System.Windows.Forms.DataGridViewTextBoxColumn no_telp;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.TextBox txtCari;
+        private System.Windows.Forms.Button btnCari;
     }
 }

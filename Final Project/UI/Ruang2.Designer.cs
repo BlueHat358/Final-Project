@@ -35,7 +35,7 @@
             this.btnRuang = new System.Windows.Forms.Button();
             this.btnPelapor = new System.Windows.Forms.Button();
             this.btnPenemu = new System.Windows.Forms.Button();
-            this.btnHome = new System.Windows.Forms.Button();
+            this.btnBarang = new System.Windows.Forms.Button();
             this.btnTambahkan = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -67,7 +67,7 @@
             this.panel1.Controls.Add(this.btnRuang);
             this.panel1.Controls.Add(this.btnPelapor);
             this.panel1.Controls.Add(this.btnPenemu);
-            this.panel1.Controls.Add(this.btnHome);
+            this.panel1.Controls.Add(this.btnBarang);
             this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
@@ -129,19 +129,19 @@
             this.btnPenemu.UseVisualStyleBackColor = false;
             this.btnPenemu.Click += new System.EventHandler(this.btnPenemu_Click);
             // 
-            // btnHome
+            // btnBarang
             // 
-            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(194)))));
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnHome.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnHome.Location = new System.Drawing.Point(8, 26);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(2);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(142, 38);
-            this.btnHome.TabIndex = 0;
-            this.btnHome.Text = "HOME";
-            this.btnHome.UseVisualStyleBackColor = false;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            this.btnBarang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(194)))));
+            this.btnBarang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBarang.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBarang.Location = new System.Drawing.Point(8, 26);
+            this.btnBarang.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBarang.Name = "btnBarang";
+            this.btnBarang.Size = new System.Drawing.Size(142, 38);
+            this.btnBarang.TabIndex = 0;
+            this.btnBarang.Text = "BARANG";
+            this.btnBarang.UseVisualStyleBackColor = false;
+            this.btnBarang.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // btnTambahkan
             // 
@@ -194,7 +194,7 @@
         private System.Windows.Forms.Button btnRuang;
         private System.Windows.Forms.Button btnPelapor;
         private System.Windows.Forms.Button btnPenemu;
-        private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.Button btnBarang;
         private System.Windows.Forms.Button btnTambahkan;
         protected internal System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Panel panel2;

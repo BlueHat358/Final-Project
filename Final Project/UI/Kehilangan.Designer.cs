@@ -35,7 +35,7 @@
             this.btnRuang = new System.Windows.Forms.Button();
             this.btnPelapor = new System.Windows.Forms.Button();
             this.btnPenemu = new System.Windows.Forms.Button();
-            this.btnHome = new System.Windows.Forms.Button();
+            this.btnBarang = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHome)).BeginInit();
             this.panel1.SuspendLayout();
@@ -47,7 +47,7 @@
             this.dgvHome.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHome.Location = new System.Drawing.Point(8, 7);
-            this.dgvHome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvHome.Margin = new System.Windows.Forms.Padding(2);
             this.dgvHome.Name = "dgvHome";
             this.dgvHome.RowTemplate.Height = 24;
             this.dgvHome.Size = new System.Drawing.Size(398, 221);
@@ -59,7 +59,7 @@
             this.btnUbah.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUbah.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnUbah.Location = new System.Drawing.Point(480, 300);
-            this.btnUbah.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUbah.Margin = new System.Windows.Forms.Padding(2);
             this.btnUbah.Name = "btnUbah";
             this.btnUbah.Size = new System.Drawing.Size(87, 39);
             this.btnUbah.TabIndex = 2;
@@ -74,9 +74,9 @@
             this.panel1.Controls.Add(this.btnRuang);
             this.panel1.Controls.Add(this.btnPelapor);
             this.panel1.Controls.Add(this.btnPenemu);
-            this.panel1.Controls.Add(this.btnHome);
+            this.panel1.Controls.Add(this.btnBarang);
             this.panel1.Location = new System.Drawing.Point(0, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(159, 374);
             this.panel1.TabIndex = 3;
@@ -87,7 +87,7 @@
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogOut.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnLogOut.Location = new System.Drawing.Point(8, 314);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(142, 38);
             this.btnLogOut.TabIndex = 6;
@@ -101,7 +101,7 @@
             this.btnRuang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRuang.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnRuang.Location = new System.Drawing.Point(8, 154);
-            this.btnRuang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRuang.Margin = new System.Windows.Forms.Padding(2);
             this.btnRuang.Name = "btnRuang";
             this.btnRuang.Size = new System.Drawing.Size(142, 38);
             this.btnRuang.TabIndex = 4;
@@ -115,7 +115,7 @@
             this.btnPelapor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPelapor.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnPelapor.Location = new System.Drawing.Point(8, 112);
-            this.btnPelapor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPelapor.Margin = new System.Windows.Forms.Padding(2);
             this.btnPelapor.Name = "btnPelapor";
             this.btnPelapor.Size = new System.Drawing.Size(142, 38);
             this.btnPelapor.TabIndex = 2;
@@ -129,7 +129,7 @@
             this.btnPenemu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPenemu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnPenemu.Location = new System.Drawing.Point(8, 69);
-            this.btnPenemu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPenemu.Margin = new System.Windows.Forms.Padding(2);
             this.btnPenemu.Name = "btnPenemu";
             this.btnPenemu.Size = new System.Drawing.Size(142, 38);
             this.btnPenemu.TabIndex = 1;
@@ -137,24 +137,24 @@
             this.btnPenemu.UseVisualStyleBackColor = false;
             this.btnPenemu.Click += new System.EventHandler(this.btnPenemu_Click);
             // 
-            // btnHome
+            // btnBarang
             // 
-            this.btnHome.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnHome.Location = new System.Drawing.Point(8, 26);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(142, 38);
-            this.btnHome.TabIndex = 0;
-            this.btnHome.Text = "HOME";
-            this.btnHome.UseVisualStyleBackColor = false;
+            this.btnBarang.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnBarang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBarang.Location = new System.Drawing.Point(8, 26);
+            this.btnBarang.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBarang.Name = "btnBarang";
+            this.btnBarang.Size = new System.Drawing.Size(142, 38);
+            this.btnBarang.TabIndex = 0;
+            this.btnBarang.Text = "BARANG";
+            this.btnBarang.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.Controls.Add(this.dgvHome);
             this.panel2.Location = new System.Drawing.Point(176, 17);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(416, 242);
             this.panel2.TabIndex = 4;
@@ -168,9 +168,9 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnUbah);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmKehilangan";
-            this.Text = "Kehilangan";
+            this.Text = "Barang";
             ((System.ComponentModel.ISupportInitialize)(this.dgvHome)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -185,7 +185,7 @@
         private System.Windows.Forms.Button btnRuang;
         private System.Windows.Forms.Button btnPelapor;
         private System.Windows.Forms.Button btnPenemu;
-        private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.Button btnBarang;
         protected internal System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Panel panel2;
     }

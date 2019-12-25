@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Final_Project.Entity {
-    public class EntRuang {
-        public String id { get; set; }
-        public String nama { get; set; }
-        public String status { get; set; }
+    class EntData {
+        public List<EntPelapor> dataPelapor { get; set; }
+        public List<EntBarang> dataBarang { get; set; }
     }
 }

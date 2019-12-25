@@ -1,39 +1,44 @@
 ﻿using Final_Project.Entity;
 using Final_Project.Implementation;
-
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinForm;
 
 namespace Final_Project.UI {
-    public partial class Lokasi : Form {
+    public partial class LokasiPenemu : Form {
 
         private MySqlConnection koneksi;
         private MySqlCommand command;
         private MySqlDataReader reader;
         String query;
 
-        EntPelapor pelapor;
         EntPenemu penemu;
         EntBarang barang;
         EntRuang ruang;
 
-        public Lokasi(EntPelapor e)
+        public LokasiPenemu(EntPenemu p, EntBarang b)
         {
-
-            pelapor = new EntPelapor();
-            pelapor = e;
-
             koneksi = koneksiDB.koneksiDB.getkoneksi();
-
             InitializeComponent();
+
+            penemu = new EntPenemu();
+            barang = new EntBarang();
+            penemu = p;
+            barang = b;
         }
 
         private void BtnSimpan_Click(object sender, EventArgs e)
         {
-            ImpPelaporan pelaporan = new ImpPelaporan();
-            Boolean status = pelaporan.InsertData(pelapor, getData());
+            ImpPenemu imp = new ImpPenemu();
+            Boolean status = imp.InsertData(penemu, getData(), getRuang(), barang);
             if (status)
                 MessageBox.Show("Input Berhasil");
             else
@@ -136,6 +141,27 @@ namespace Final_Project.UI {
             this.Hide();
             login.ShowDialog();
             this.Dispose();
+        }
+
+        private EntRuang getRuang()
+        {
+            query = $"SELECT * FROM tb_ruang WHERE nama_ruang = '{penemu.ruang}';";
+
+            koneksi.Open();
+            command = koneksi.CreateCommand();
+            command.CommandText = query;
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                ruang = new EntRuang();
+
+                ruang.id = reader["id_ruang"].ToString();
+                ruang.nama = reader["nama_ruang"].ToString();
+                ruang.status = "Ada";
+            }
+
+            return ruang;
         }
     }
 }

@@ -18,6 +18,8 @@ namespace Final_Project.Implementation
         Boolean status;
         String query;
 
+        int count;
+
         public ImpPelaporan()
         {
             koneksi = koneksiDB.koneksiDB.getkoneksi();
@@ -80,6 +82,62 @@ namespace Final_Project.Implementation
             return status;
         }
 
+        public EntData Search(string nama)
+        {
+            EntData data = new EntData();
+            List<EntBarang> listBarang = new List<EntBarang>();
+            List<EntPelapor> listPelapor = new List<EntPelapor>();
+
+            query = $"SELECT * FROM tb_pelapor WHERE nama_pelapor LIKE '%{nama}%';";
+
+            koneksi.Open();
+            command = koneksi.CreateCommand();
+            command.CommandText = query;
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                EntPelapor pelapor = new EntPelapor();
+                pelapor.id = reader["id_pelapor"].ToString();
+                pelapor.nama = reader["nama_pelapor"].ToString();
+                pelapor.otherId = reader["id_barang"].ToString();
+                pelapor.no_telp = reader["no_telp"].ToString();
+                pelapor.otherId1 = reader["id_lokasi"].ToString();
+                pelapor.id_admin = reader["id_admin"].ToString();
+
+                listPelapor.Add(pelapor);
+                count++;
+            }
+
+            koneksi.Close();
+
+            for(int i = 0; i < count; i++)
+            {
+                koneksi.Open();
+                query = $"SELECT * FROM tb_barang WHERE id_barang = '{listPelapor[i].otherId}';";
+
+                command = koneksi.CreateCommand();
+                command.CommandText = query;
+                reader = command.ExecuteReader();
+
+                reader.Read();
+
+                EntBarang barang = new EntBarang();
+                barang.id = reader["id_barang"].ToString();
+                barang.nama = reader["nama_barang"].ToString();
+                barang.status = reader["status"].ToString();
+                barang.jenis = reader["jenis_barang"].ToString();
+
+                listBarang.Add(barang);
+                koneksi.Close();
+            }
+
+            data.dataBarang = listBarang;
+            data.dataPelapor = listPelapor;
+
+            return data;
+        }
+
         public bool UpdateData(EntPelapor e)
         {
             EntPelapor pelapor = new EntPelapor();
@@ -88,7 +146,7 @@ namespace Final_Project.Implementation
 
             try
             {
-                query = $"UPDATE tb_barang SET tb_barang.status = '{e.status}', ', nama_barang = '{e.nama_barang}', jenis_barang = '{e.jenis}' WHERE id_barang = '{e.otherId}';" +
+                query = $"UPDATE tb_barang SET tb_barang.status = '{e.status}', nama_barang = '{e.nama_barang}', jenis_barang = '{e.jenis}' WHERE id_barang = '{e.otherId}';" +
                     $"UPDATE tb_pelapor SET nama_pelapor = '{e.nama}', no_telp = '{e.no_telp}' WHERE id_pelapor = '{e.id}';";
 
                 koneksi.Open();

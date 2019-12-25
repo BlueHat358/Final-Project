@@ -81,13 +81,6 @@ namespace Final_Project.UI
             this.Dispose();
         }
 
-        private void btnPangambil_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            
-            this.Dispose();
-        }
-
         private void btnRuang_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -126,10 +119,9 @@ namespace Final_Project.UI
             command.CommandText = query;
             reader = command.ExecuteReader();
 
-            EntPelapor pelapor = new EntPelapor();
-
             while (reader.Read())
             {
+                EntPelapor pelapor = new EntPelapor();
                 pelapor.id = reader["id_pelapor"].ToString();
                 pelapor.otherId = reader["id_barang"].ToString();
                 pelapor.nama = reader["nama_pelapor"].ToString();
@@ -152,8 +144,8 @@ namespace Final_Project.UI
                 reader = command.ExecuteReader();
 
                 reader.Read();
-                pelapor.jenis = reader["jenis_barang"].ToString();
-                pelapor.nama_barang = reader["nama_barang"].ToString();
+                barang.jenis = reader["jenis_barang"].ToString();
+                barang.nama = reader["nama_barang"].ToString();
                 barang.status = reader["status"].ToString();
 
                 data1.Add(barang);
@@ -167,10 +159,34 @@ namespace Final_Project.UI
                 dgvPelapor[1, i].Value = data[i].otherId1;
                 dgvPelapor[2, i].Value = data[i].otherId;
                 dgvPelapor[3, i].Value = data[i].nama;
-                dgvPelapor[4, i].Value = data[i].jenis;
-                dgvPelapor[5, i].Value = data[i].nama_barang;
+                dgvPelapor[4, i].Value = data1[i].jenis;
+                dgvPelapor[5, i].Value = data1[i].nama;
                 dgvPelapor[6, i].Value = data[i].no_telp;
                 dgvPelapor[7, i].Value = data1[i].status;
+            }
+        }
+
+        private void BtnCari_Click(object sender, EventArgs e)
+        {
+            EntData data = new EntData();
+            ImpPelaporan imp = new ImpPelaporan();
+            data = imp.Search(txtCari.Text);
+
+            MessageBox.Show(data.dataBarang.Count.ToString());
+
+            dgvPelapor.Rows.Clear();
+
+            for(int i = 0; i < data.dataPelapor.Count; i++)
+            {
+                dgvPelapor.Rows.Add();
+                dgvPelapor[0, i].Value = data.dataPelapor[i].id;
+                dgvPelapor[1, i].Value = data.dataPelapor[i].otherId1;
+                dgvPelapor[2, i].Value = data.dataBarang[i].id;
+                dgvPelapor[3, i].Value = data.dataPelapor[i].nama;
+                dgvPelapor[4, i].Value = data.dataBarang[i].jenis;
+                dgvPelapor[5, i].Value = data.dataBarang[i].nama;
+                dgvPelapor[6, i].Value = data.dataPelapor[i].no_telp;
+                dgvPelapor[7, i].Value = data.dataBarang[i].status;
             }
         }
     }

@@ -23,6 +23,8 @@ namespace Final_Project.UI
 
         String query;
 
+        Boolean stat;
+
         public frmRuang()
         {
             InitializeComponent();
@@ -40,13 +42,19 @@ namespace Final_Project.UI
             this.Dispose();
         }
 
-        private void btnUbah_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnHapus_Click(object sender, EventArgs e)
         {
+            String getId = dgvRuang.SelectedRows[0].Cells[0].Value.ToString();
+
+            if (DeleteData(getId))
+            {
+                MessageBox.Show("Data Berhasil Dihapus", "Berhasil");
+            }
+            else
+            {
+                MessageBox.Show("Data Gagal Dihapus", "Error");
+            }
+
             if (this.dgvRuang.SelectedRows.Count > 0)
             {
                 dgvRuang.Rows.RemoveAt(this.dgvRuang.SelectedRows[0].Index);
@@ -64,7 +72,8 @@ namespace Final_Project.UI
         private void btnPenemu_Click(object sender, EventArgs e)
         {
             this.Hide();
-            
+            frmPenemu frm = new frmPenemu();
+            frm.ShowDialog();
             this.Dispose();
         }
 
@@ -99,9 +108,9 @@ namespace Final_Project.UI
             int count = 0;
 
             query = "SELECT tb_ruang.id_ruang, tb_ruang.nama_ruang, tb_ruang.status_ruang, " +
-                "tb_barang.nama_barang FROM tb_ruang " +
+                "tb_barang.id_barang, tb_barang.nama_barang FROM tb_ruang " +
                 "LEFT JOIN tb_barang ON " +
-                "tb_ruang.id_ruang = tb_barang.id_ruang";
+                "tb_ruang.id_ruang = tb_barang.id_ruang ORDER BY tb_ruang.id_ruang";
 
             koneksi.Open();
             command = koneksi.CreateCommand();
@@ -115,7 +124,7 @@ namespace Final_Project.UI
                 ruang.id = reader["id_ruang"].ToString();
                 ruang.nama = reader["nama_ruang"].ToString();
                 ruang.status = reader["status_ruang"].ToString();
-                barang.id = reader["id_ruang"].ToString();
+                barang.id = reader["id_barang"].ToString();
                 barang.nama = reader["nama_barang"].ToString();
 
                 dgvRuang.Rows.Add();
@@ -130,6 +139,29 @@ namespace Final_Project.UI
             }
             koneksi.Close();
 
+
+        }
+
+        private Boolean DeleteData(String id)
+        {
+            query = $"DELETE FROM tb_ruang WHERE id_ruang = '{id}';";
+
+            try
+            {
+                koneksi.Open();
+                command = koneksi.CreateCommand();
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+
+                stat = true;
+            }
+            catch(MySqlException er)
+            {
+                //MessageBox.Show(er.ToString());
+                stat = false;
+            }
+
+            return stat;
         }
     }
 }
