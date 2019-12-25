@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnRuang = new System.Windows.Forms.Button();
@@ -36,17 +36,17 @@
             this.btnPenemu = new System.Windows.Forms.Button();
             this.btnBarang = new System.Windows.Forms.Button();
             this.dgvPenemu = new System.Windows.Forms.DataGridView();
+            this.btnUbah = new System.Windows.Forms.Button();
+            this.btnHapus = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCari = new System.Windows.Forms.Button();
+            this.txtCari = new System.Windows.Forms.TextBox();
             this.id_penemu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_barang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nama_penemu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jenis_barang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nama_barang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ruang_penemu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnUbah = new System.Windows.Forms.Button();
-            this.btnHapus = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnCari = new System.Windows.Forms.Button();
-            this.txtCari = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPenemu)).BeginInit();
             this.panel2.SuspendLayout();
@@ -136,9 +136,9 @@
             // 
             // dgvPenemu
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            this.dgvPenemu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            this.dgvPenemu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPenemu.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvPenemu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPenemu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -154,36 +154,6 @@
             this.dgvPenemu.RowTemplate.Height = 24;
             this.dgvPenemu.Size = new System.Drawing.Size(414, 258);
             this.dgvPenemu.TabIndex = 3;
-            // 
-            // id_penemu
-            // 
-            this.id_penemu.HeaderText = "ID Penemu";
-            this.id_penemu.Name = "id_penemu";
-            // 
-            // id_barang
-            // 
-            this.id_barang.HeaderText = "ID Barang";
-            this.id_barang.Name = "id_barang";
-            // 
-            // nama_penemu
-            // 
-            this.nama_penemu.HeaderText = "Nama Penemu";
-            this.nama_penemu.Name = "nama_penemu";
-            // 
-            // jenis_barang
-            // 
-            this.jenis_barang.HeaderText = "Jenis Barang";
-            this.jenis_barang.Name = "jenis_barang";
-            // 
-            // nama_barang
-            // 
-            this.nama_barang.HeaderText = "Nama Barang";
-            this.nama_barang.Name = "nama_barang";
-            // 
-            // ruang_penemu
-            // 
-            this.ruang_penemu.HeaderText = "Ruang";
-            this.ruang_penemu.Name = "ruang_penemu";
             // 
             // btnUbah
             // 
@@ -243,6 +213,36 @@
             this.txtCari.TabIndex = 11;
             this.txtCari.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // id_penemu
+            // 
+            this.id_penemu.HeaderText = "ID Penemu";
+            this.id_penemu.Name = "id_penemu";
+            // 
+            // id_barang
+            // 
+            this.id_barang.HeaderText = "ID Barang";
+            this.id_barang.Name = "id_barang";
+            // 
+            // nama_penemu
+            // 
+            this.nama_penemu.HeaderText = "Nama Penemu";
+            this.nama_penemu.Name = "nama_penemu";
+            // 
+            // jenis_barang
+            // 
+            this.jenis_barang.HeaderText = "Jenis Barang";
+            this.jenis_barang.Name = "jenis_barang";
+            // 
+            // nama_barang
+            // 
+            this.nama_barang.HeaderText = "Nama Barang";
+            this.nama_barang.Name = "nama_barang";
+            // 
+            // ruang_penemu
+            // 
+            this.ruang_penemu.HeaderText = "Ruang";
+            this.ruang_penemu.Name = "ruang_penemu";
+            // 
             // frmPenemu2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,13 +278,13 @@
         private System.Windows.Forms.Button btnHapus;
         protected internal System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnCari;
+        private System.Windows.Forms.TextBox txtCari;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_penemu;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_barang;
         private System.Windows.Forms.DataGridViewTextBoxColumn nama_penemu;
         private System.Windows.Forms.DataGridViewTextBoxColumn jenis_barang;
         private System.Windows.Forms.DataGridViewTextBoxColumn nama_barang;
         private System.Windows.Forms.DataGridViewTextBoxColumn ruang_penemu;
-        private System.Windows.Forms.Button btnCari;
-        private System.Windows.Forms.TextBox txtCari;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Final_Project.Implementation;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +15,17 @@ namespace Final_Project.UI
 {
     public partial class frmPenemu2 : Form
     {
+
+        MySqlConnection koneksi;
+        MySqlCommand command;
+        MySqlDataReader reader;
+
+        String query;
+
         public frmPenemu2()
         {
+            koneksi = koneksiDB.koneksiDB.getkoneksi();
+
             InitializeComponent();
         }
 
@@ -26,6 +36,43 @@ namespace Final_Project.UI
 
         private void btnHapus_Click(object sender, EventArgs e)
         {
+            String id, id1;
+            query = $"SELECT id_ruang FROM tb_barang WHERE id = '{dgvPenemu.SelectedRows[0].Cells[1].ToString()}';";
+
+            koneksi.Open();
+            command = koneksi.CreateCommand();
+            command.CommandText();
+            reader = command.ExecuteReader();
+
+            reader.Read();
+            id = reader["id_ruang"].ToString();
+            koneksi.Close();
+
+            query = $"SELECT id_lokasi FROM tb_penemu WHERE id = '{dgvPenemu.SelectedRows[0].Cells[0].ToString()}';";
+
+            koneksi.Open();
+            command = koneksi.CreateCommand();
+            command.CommandText();
+            reader = command.ExecuteReader();
+
+            reader.Read();
+            id1 = reader["id_lokasi"].ToString();
+            koneksi.Close();
+
+            String[] id_ = new String[4]
+            {
+                dgvPenemu.SelectedRows[0].Cells[0].ToString(),
+                id1,
+                dgvPenemu.SelectedRows[0].Cells[1].ToString(),
+                id
+            };
+
+            ImpPenemu imp = new ImpPenemu();
+            if (imp.DeleteData(id_))
+            {
+                MessageBox.Show("Hapus Berhasil");
+            }
+
             if (this.dgvPenemu.SelectedRows.Count > 0)
             {
                 dgvPenemu.Rows.RemoveAt(this.dgvPenemu.SelectedRows[0].Index);

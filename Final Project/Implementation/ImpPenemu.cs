@@ -8,6 +8,7 @@ using Final_Project.Entity;
 using MySql.Data.MySqlClient;
 
 namespace Final_Project.Implementation {
+
     class ImpPenemu : Interface.IntPenemu {
 
         MySqlConnection koneksi;
@@ -22,11 +23,14 @@ namespace Final_Project.Implementation {
             koneksi = koneksiDB.koneksiDB.getkoneksi();
         }
 
-        public bool DeleteData(string id)
+        public bool DeleteData(string[] id)
         {
             try
             {
-                query = $"DELETE FROM tb_penemu WHERE id_penemu = '{id}'";
+                query = $"DELETE FROM tb_penemu WHERE id_penemu = '{id[0]}';" +
+                    $"DELETE FROM tb_lokasi WHERE id_penemu = '{id[1]}';" +
+                    $"DELETE FROM tb_barang WHERE id_penemu = '{id[2]}';" +
+                    $"UPDATE tb_ruang SET status_ruang = 'Kosong' WHERE id_ruang = '{id[3]}';";
 
                 koneksi.Open();
                 command = koneksi.CreateCommand();
@@ -35,7 +39,8 @@ namespace Final_Project.Implementation {
                 koneksi.Close();
 
                 status = true;
-            }catch(MySqlException er)
+            }
+            catch (MySqlException er)
             {
                 status = false;
                 MessageBox.Show(er.ToString());

@@ -9,7 +9,7 @@ namespace Final_Project.Interface {
     interface IntPenemu {
         Boolean InsertData(EntPenemu p, EntLokasi loc, EntRuang r, EntBarang b);
         Boolean UpdateData(EntRuang r);
-        Boolean DeleteData(String id);
+        Boolean DeleteData(String[] id);
         bool Search(String nama);
     }
 }
