@@ -23,8 +23,10 @@ namespace Final_Project.UI
         private Boolean status;
 
         EntPelapor e;
+        EntBarang barang;
+        EntPenemu penemu;
 
-        public frmPelapor(Boolean show = false)
+        public frmPelapor(Boolean show = false, int key = 0)
         {
             koneksi = koneksiDB.koneksiDB.getkoneksi();
 
@@ -33,12 +35,21 @@ namespace Final_Project.UI
             if (!show)
             {
                 panel2.Size = new Size(408, 209);
+                rbPelaporan.Visible = false;
+            }
+            else if(show && key == 1)
+            {
+                panel2.Size = new Size(408, 264);
+                btnSimpan.Text = "Update";
+                btnTampilkan.Visible = false;
+                rbPelaporan.Visible = false;
             }
             else
             {
                 panel2.Size = new Size(408, 264);
                 btnSimpan.Text = "Update";
                 btnTampilkan.Visible = false;
+                rbPelaporan.Visible = true;
             }
 
             lbIdBarang.Visible = show;
@@ -49,7 +60,46 @@ namespace Final_Project.UI
             txtIdPelapor.Visible = show;
             txtIdPelapor.Enabled = false;
             rbDiambil.Visible = show;
-            rbPelaporan.Visible = show;
+        }
+
+        public void getEntity(EntPenemu p, EntBarang b)
+        {
+            query = "SELECT id_admin FROM tb_admin WHERE status_admin = 1;";
+
+            koneksi.Open();
+            command = koneksi.CreateCommand();
+            command.CommandText = query;
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                id = reader["id_admin"].ToString();
+            }
+
+            e = new EntPelapor();
+            e.id = kodeBaru("pelapor");
+            e.otherId = p.id_lokasi;
+            e.nama = txtNamaPelapor.Text;
+            e.jenis = cmbJenisBarang.Text;
+            e.nama_barang = txtNamaBarang.Text;
+            e.no_telp = txtNoTelp.Text;
+            e.id_admin = id;
+
+            koneksi.Close();
+
+            penemu = new EntPenemu();
+            barang = new EntBarang();
+
+            penemu = p;
+            barang = b;
+
+            txtIdBarang.Text = b.id;
+            txtIdPelapor.Text = kodeBaru("pelapor");
+            txtNamaBarang.Text = b.nama;
+            cmbJenisBarang.Text = b.jenis;
+
+            ImpPenemu imp = new ImpPenemu();
+            imp.UpdateData(barang, penemu, e);
         }
 
         private void btnLanjut_Click(object sender, EventArgs ev)

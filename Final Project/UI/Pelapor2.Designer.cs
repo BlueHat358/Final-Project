@@ -176,6 +176,7 @@
             // 
             // dgvPelapor
             // 
+            this.dgvPelapor.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvPelapor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPelapor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_pelapor,

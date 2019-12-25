@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 namespace Final_Project.Interface {
     interface IntPenemu {
         Boolean InsertData(EntPenemu p, EntLokasi loc, EntRuang r, EntBarang b);
-        Boolean UpdateData(EntRuang r);
+        Boolean UpdateData(EntBarang b, EntPenemu pen, EntPelapor p);
         Boolean DeleteData(String[] id);
-        bool Search(String nama);
+        EntData Search(String nama);
     }
 }

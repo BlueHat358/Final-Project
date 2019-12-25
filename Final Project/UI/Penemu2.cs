@@ -1,4 +1,5 @@
-﻿using Final_Project.Implementation;
+﻿using Final_Project.Entity;
+using Final_Project.Implementation;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -27,11 +28,29 @@ namespace Final_Project.UI
             koneksi = koneksiDB.koneksiDB.getkoneksi();
 
             InitializeComponent();
+
+            showData();
         }
 
         private void btnUbah_Click(object sender, EventArgs e)
         {
+            EntPenemu penemu = new EntPenemu();
+            EntBarang barang = new EntBarang();
 
+            penemu.id = dgvPenemu.SelectedRows[0].Cells[0].Value.ToString();
+            penemu.nama = dgvPenemu.SelectedRows[0].Cells[2].Value.ToString();
+            penemu.id_lokasi = dgvPenemu.SelectedRows[0].Cells[7].Value.ToString();
+            penemu.id_admin = dgvPenemu.SelectedRows[0].Cells[6].Value.ToString();
+            penemu.ruang = dgvPenemu.SelectedRows[0].Cells[5].Value.ToString();
+            barang.id = dgvPenemu.SelectedRows[0].Cells[1].Value.ToString();
+            barang.nama = dgvPenemu.SelectedRows[0].Cells[4].Value.ToString();
+            barang.jenis = dgvPenemu.SelectedRows[0].Cells[3].Value.ToString();
+
+            frmPelapor frm = new frmPelapor(true, 1);
+            frm.getEntity(penemu, barang);
+            this.Hide();
+            frm.ShowDialog();
+            this.Dispose();
         }
 
         private void btnHapus_Click(object sender, EventArgs e)
@@ -41,7 +60,7 @@ namespace Final_Project.UI
 
             koneksi.Open();
             command = koneksi.CreateCommand();
-            command.CommandText();
+            command.CommandText = query;
             reader = command.ExecuteReader();
 
             reader.Read();
@@ -52,7 +71,7 @@ namespace Final_Project.UI
 
             koneksi.Open();
             command = koneksi.CreateCommand();
-            command.CommandText();
+            command.CommandText = query;
             reader = command.ExecuteReader();
 
             reader.Read();
@@ -119,6 +138,65 @@ namespace Final_Project.UI
             this.Hide();
             login.ShowDialog();
             this.Dispose();
+        }
+
+        private void showData()
+        {
+            int count = 0;
+
+            query = "SELECT tb_penemu.id_penemu, tb_penemu.id_barang, tb_penemu.nama_penemu, " +
+                "tb_barang.jenis_barang, tb_barang.nama_barang,tb_ruang.nama_ruang, tb_penemu.id_admin, tb_penemu.id_lokasi, tb_barang.status " +
+                "FROM tb_penemu " +
+                "INNER JOIN tb_barang ON tb_penemu.id_barang = tb_barang.id_barang " +
+                "INNER JOIN tb_ruang ON tb_barang.id_ruang = tb_ruang.id_ruang";
+            koneksi.Open();
+            command = koneksi.CreateCommand();
+            command.CommandText = query;
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                dgvPenemu.Rows.Add();
+                dgvPenemu[0, count].Value = reader["id_penemu"].ToString();
+                dgvPenemu[1, count].Value = reader["id_barang"].ToString();
+                dgvPenemu[2, count].Value = reader["nama_penemu"].ToString();
+                dgvPenemu[3, count].Value = reader["jenis_barang"].ToString();
+                dgvPenemu[4, count].Value = reader["nama_barang"].ToString();
+                dgvPenemu[5, count].Value = reader["nama_ruang"].ToString();
+                dgvPenemu[6, count].Value = reader["id_admin"].ToString();
+                dgvPenemu[7, count].Value = reader["id_lokasi"].ToString();
+                dgvPenemu[8, count].Value = reader["status"].ToString();
+
+                count++;
+            }
+            koneksi.Close();
+        }
+
+        private void BtnCari_Click(object sender, EventArgs e)
+        {
+            int count = 0;
+            EntData data = new EntData();
+            ImpPenemu imp = new ImpPenemu();
+            data = imp.Search(txtCari.Text);
+
+            //MessageBox.Show(data.dataBarang.Count.ToString());
+
+            dgvPenemu.Rows.Clear();
+
+            for (int i = 0; i < data.dataPenemu.Count; i++)
+            {
+                dgvPenemu.Rows.Add();
+                dgvPenemu[0, count].Value = data.dataPenemu[i].id;
+                dgvPenemu[1, count].Value = data.dataBarang[i].id;
+                dgvPenemu[2, count].Value = data.dataPenemu[i].nama;
+                dgvPenemu[3, count].Value = data.dataBarang[i].jenis;
+                dgvPenemu[4, count].Value = data.dataBarang[i].nama;
+                dgvPenemu[5, count].Value = data.dataRuang[i].nama;
+                dgvPenemu[6, count].Value = data.dataPenemu[i].id_admin;
+                dgvPenemu[7, count].Value = data.dataPenemu[i].id_lokasi;
+                dgvPenemu[8, count].Value = data.dataBarang[i].status;
+                count++;
+            }
         }
     }
 }

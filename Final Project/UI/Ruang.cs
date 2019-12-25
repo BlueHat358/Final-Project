@@ -85,13 +85,6 @@ namespace Final_Project.UI
             this.Dispose();
         }
 
-        private void btnPengambil_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-           
-            this.Dispose();
-        }
-
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             ImpSignOut signOut = new ImpSignOut();

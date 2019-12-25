@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvHome = new System.Windows.Forms.DataGridView();
-            this.btnUbah = new System.Windows.Forms.Button();
+            this.dgvBarang = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnRuang = new System.Windows.Forms.Button();
@@ -37,35 +36,34 @@
             this.btnPenemu = new System.Windows.Forms.Button();
             this.btnBarang = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHome)).BeginInit();
+            this.id_barang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_ruang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jenis_barang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nama_barang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status_barang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCari = new System.Windows.Forms.Button();
+            this.txtCari = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBarang)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvHome
+            // dgvBarang
             // 
-            this.dgvHome.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dgvHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHome.Location = new System.Drawing.Point(8, 7);
-            this.dgvHome.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvHome.Name = "dgvHome";
-            this.dgvHome.RowTemplate.Height = 24;
-            this.dgvHome.Size = new System.Drawing.Size(398, 221);
-            this.dgvHome.TabIndex = 1;
-            // 
-            // btnUbah
-            // 
-            this.btnUbah.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(194)))));
-            this.btnUbah.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnUbah.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnUbah.Location = new System.Drawing.Point(480, 300);
-            this.btnUbah.Margin = new System.Windows.Forms.Padding(2);
-            this.btnUbah.Name = "btnUbah";
-            this.btnUbah.Size = new System.Drawing.Size(87, 39);
-            this.btnUbah.TabIndex = 2;
-            this.btnUbah.Text = "UBAH";
-            this.btnUbah.UseVisualStyleBackColor = false;
-            this.btnUbah.Click += new System.EventHandler(this.btnUbah_Click);
+            this.dgvBarang.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dgvBarang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBarang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_barang,
+            this.id_ruang,
+            this.jenis_barang,
+            this.nama_barang,
+            this.status_barang});
+            this.dgvBarang.Location = new System.Drawing.Point(0, 2);
+            this.dgvBarang.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvBarang.Name = "dgvBarang";
+            this.dgvBarang.RowTemplate.Height = 24;
+            this.dgvBarang.Size = new System.Drawing.Size(416, 305);
+            this.dgvBarang.TabIndex = 1;
             // 
             // panel1
             // 
@@ -152,12 +150,58 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.Controls.Add(this.dgvHome);
-            this.panel2.Location = new System.Drawing.Point(176, 17);
+            this.panel2.Controls.Add(this.dgvBarang);
+            this.panel2.Location = new System.Drawing.Point(176, 44);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(416, 242);
+            this.panel2.Size = new System.Drawing.Size(416, 309);
             this.panel2.TabIndex = 4;
+            // 
+            // id_barang
+            // 
+            this.id_barang.HeaderText = "ID Barang";
+            this.id_barang.Name = "id_barang";
+            // 
+            // id_ruang
+            // 
+            this.id_ruang.HeaderText = "ID Ruang";
+            this.id_ruang.Name = "id_ruang";
+            // 
+            // jenis_barang
+            // 
+            this.jenis_barang.HeaderText = "Jenis Barang";
+            this.jenis_barang.Name = "jenis_barang";
+            // 
+            // nama_barang
+            // 
+            this.nama_barang.HeaderText = "Nama Barang";
+            this.nama_barang.Name = "nama_barang";
+            // 
+            // status_barang
+            // 
+            this.status_barang.HeaderText = "Status";
+            this.status_barang.Name = "status_barang";
+            // 
+            // btnCari
+            // 
+            this.btnCari.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnCari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCari.ForeColor = System.Drawing.Color.White;
+            this.btnCari.Location = new System.Drawing.Point(517, 10);
+            this.btnCari.Name = "btnCari";
+            this.btnCari.Size = new System.Drawing.Size(75, 23);
+            this.btnCari.TabIndex = 14;
+            this.btnCari.Text = "Cari";
+            this.btnCari.UseVisualStyleBackColor = false;
+            this.btnCari.Click += new System.EventHandler(this.BtnCari_Click);
+            // 
+            // txtCari
+            // 
+            this.txtCari.Location = new System.Drawing.Point(411, 12);
+            this.txtCari.Name = "txtCari";
+            this.txtCari.Size = new System.Drawing.Size(100, 20);
+            this.txtCari.TabIndex = 13;
+            this.txtCari.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // frmKehilangan
             // 
@@ -165,22 +209,23 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.btnCari);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.txtCari);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnUbah);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmKehilangan";
             this.Text = "Barang";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHome)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBarang)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dgvHome;
-        private System.Windows.Forms.Button btnUbah;
+        private System.Windows.Forms.DataGridView dgvBarang;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnRuang;
         private System.Windows.Forms.Button btnPelapor;
@@ -188,6 +233,13 @@
         private System.Windows.Forms.Button btnBarang;
         protected internal System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_barang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_ruang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jenis_barang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nama_barang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status_barang;
+        private System.Windows.Forms.Button btnCari;
+        private System.Windows.Forms.TextBox txtCari;
     }
 }
 

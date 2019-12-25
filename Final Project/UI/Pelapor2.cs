@@ -36,7 +36,7 @@ namespace Final_Project.UI
             pelapor.no_telp = dgvPelapor.SelectedRows[0].Cells[6].Value.ToString();
 
             this.Hide();
-            frmPelapor frm = new frmPelapor(true);
+            frmPelapor frm = new frmPelapor(true, 1);
             frm.getChangeData(pelapor);
             frm.ShowDialog();
             this.Dispose();
@@ -172,7 +172,7 @@ namespace Final_Project.UI
             ImpPelaporan imp = new ImpPelaporan();
             data = imp.Search(txtCari.Text);
 
-            MessageBox.Show(data.dataBarang.Count.ToString());
+            //MessageBox.Show(data.dataBarang.Count.ToString());
 
             dgvPelapor.Rows.Clear();
 

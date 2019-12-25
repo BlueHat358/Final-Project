@@ -36,17 +36,20 @@
             this.btnPenemu = new System.Windows.Forms.Button();
             this.btnBarang = new System.Windows.Forms.Button();
             this.dgvPenemu = new System.Windows.Forms.DataGridView();
-            this.btnUbah = new System.Windows.Forms.Button();
-            this.btnHapus = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnCari = new System.Windows.Forms.Button();
-            this.txtCari = new System.Windows.Forms.TextBox();
             this.id_penemu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_barang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nama_penemu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jenis_barang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nama_barang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ruang_penemu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_admin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_lokasi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnUbah = new System.Windows.Forms.Button();
+            this.btnHapus = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCari = new System.Windows.Forms.Button();
+            this.txtCari = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPenemu)).BeginInit();
             this.panel2.SuspendLayout();
@@ -147,13 +150,61 @@
             this.nama_penemu,
             this.jenis_barang,
             this.nama_barang,
-            this.ruang_penemu});
-            this.dgvPenemu.Location = new System.Drawing.Point(2, 2);
+            this.ruang_penemu,
+            this.id_admin,
+            this.id_lokasi,
+            this.status});
+            this.dgvPenemu.Location = new System.Drawing.Point(0, 0);
             this.dgvPenemu.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPenemu.Name = "dgvPenemu";
             this.dgvPenemu.RowTemplate.Height = 24;
             this.dgvPenemu.Size = new System.Drawing.Size(414, 258);
-            this.dgvPenemu.TabIndex = 3;
+            this.dgvPenemu.TabIndex = 0;
+            // 
+            // id_penemu
+            // 
+            this.id_penemu.HeaderText = "ID Penemu";
+            this.id_penemu.Name = "id_penemu";
+            // 
+            // id_barang
+            // 
+            this.id_barang.HeaderText = "ID Barang";
+            this.id_barang.Name = "id_barang";
+            // 
+            // nama_penemu
+            // 
+            this.nama_penemu.HeaderText = "Nama Penemu";
+            this.nama_penemu.Name = "nama_penemu";
+            // 
+            // jenis_barang
+            // 
+            this.jenis_barang.HeaderText = "Jenis Barang";
+            this.jenis_barang.Name = "jenis_barang";
+            // 
+            // nama_barang
+            // 
+            this.nama_barang.HeaderText = "Nama Barang";
+            this.nama_barang.Name = "nama_barang";
+            // 
+            // ruang_penemu
+            // 
+            this.ruang_penemu.HeaderText = "Ruang";
+            this.ruang_penemu.Name = "ruang_penemu";
+            // 
+            // id_admin
+            // 
+            this.id_admin.HeaderText = "ID Admin";
+            this.id_admin.Name = "id_admin";
+            // 
+            // id_lokasi
+            // 
+            this.id_lokasi.HeaderText = "ID Lokasi";
+            this.id_lokasi.Name = "id_lokasi";
+            // 
+            // status
+            // 
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
             // 
             // btnUbah
             // 
@@ -204,6 +255,7 @@
             this.btnCari.TabIndex = 12;
             this.btnCari.Text = "Cari";
             this.btnCari.UseVisualStyleBackColor = false;
+            this.btnCari.Click += new System.EventHandler(this.BtnCari_Click);
             // 
             // txtCari
             // 
@@ -212,36 +264,6 @@
             this.txtCari.Size = new System.Drawing.Size(100, 20);
             this.txtCari.TabIndex = 11;
             this.txtCari.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // id_penemu
-            // 
-            this.id_penemu.HeaderText = "ID Penemu";
-            this.id_penemu.Name = "id_penemu";
-            // 
-            // id_barang
-            // 
-            this.id_barang.HeaderText = "ID Barang";
-            this.id_barang.Name = "id_barang";
-            // 
-            // nama_penemu
-            // 
-            this.nama_penemu.HeaderText = "Nama Penemu";
-            this.nama_penemu.Name = "nama_penemu";
-            // 
-            // jenis_barang
-            // 
-            this.jenis_barang.HeaderText = "Jenis Barang";
-            this.jenis_barang.Name = "jenis_barang";
-            // 
-            // nama_barang
-            // 
-            this.nama_barang.HeaderText = "Nama Barang";
-            this.nama_barang.Name = "nama_barang";
-            // 
-            // ruang_penemu
-            // 
-            this.ruang_penemu.HeaderText = "Ruang";
-            this.ruang_penemu.Name = "ruang_penemu";
             // 
             // frmPenemu2
             // 
@@ -286,5 +308,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn jenis_barang;
         private System.Windows.Forms.DataGridViewTextBoxColumn nama_barang;
         private System.Windows.Forms.DataGridViewTextBoxColumn ruang_penemu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_admin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_lokasi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
     }
 }
