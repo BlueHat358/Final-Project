@@ -178,8 +178,6 @@ namespace Final_Project.UI
                 ImpPelaporan imp = new ImpPelaporan();
                 data = imp.Search(txtCari.Text);
 
-                //MessageBox.Show(data.dataBarang.Count.ToString());
-
                 dgvPelapor.Rows.Clear();
 
                 for (int i = 0; i < data.dataPelapor.Count; i++)
