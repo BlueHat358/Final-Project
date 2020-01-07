@@ -175,27 +175,34 @@ namespace Final_Project.UI
         private void BtnCari_Click(object sender, EventArgs e)
         {
             int count = 0;
-            EntData data = new EntData();
-            ImpPenemu imp = new ImpPenemu();
-            data = imp.Search(txtCari.Text);
-
-            //MessageBox.Show(data.dataBarang.Count.ToString());
-
-            dgvPenemu.Rows.Clear();
-
-            for (int i = 0; i < data.dataPenemu.Count; i++)
+            if(txtCari.Text == null)
             {
-                dgvPenemu.Rows.Add();
-                dgvPenemu[0, count].Value = data.dataPenemu[i].id;
-                dgvPenemu[1, count].Value = data.dataBarang[i].id;
-                dgvPenemu[2, count].Value = data.dataPenemu[i].nama;
-                dgvPenemu[3, count].Value = data.dataBarang[i].jenis;
-                dgvPenemu[4, count].Value = data.dataBarang[i].nama;
-                dgvPenemu[5, count].Value = data.dataRuang[i].nama;
-                dgvPenemu[6, count].Value = data.dataPenemu[i].id_admin;
-                dgvPenemu[7, count].Value = data.dataPenemu[i].id_lokasi;
-                dgvPenemu[8, count].Value = data.dataBarang[i].status;
-                count++;
+                showData();
+            }
+            else
+            {
+                EntData data = new EntData();
+                ImpPenemu imp = new ImpPenemu();
+                data = imp.Search(txtCari.Text);
+
+                //MessageBox.Show(data.dataBarang.Count.ToString());
+
+                dgvPenemu.Rows.Clear();
+
+                for (int i = 0; i < data.dataPenemu.Count; i++)
+                {
+                    dgvPenemu.Rows.Add();
+                    dgvPenemu[0, count].Value = data.dataPenemu[i].id;
+                    dgvPenemu[1, count].Value = data.dataBarang[i].id;
+                    dgvPenemu[2, count].Value = data.dataPenemu[i].nama;
+                    dgvPenemu[3, count].Value = data.dataBarang[i].jenis;
+                    dgvPenemu[4, count].Value = data.dataBarang[i].nama;
+                    dgvPenemu[5, count].Value = data.dataRuang[i].nama;
+                    dgvPenemu[6, count].Value = data.dataPenemu[i].id_admin;
+                    dgvPenemu[7, count].Value = data.dataPenemu[i].id_lokasi;
+                    dgvPenemu[8, count].Value = data.dataBarang[i].status;
+                    count++;
+                }
             }
         }
     }

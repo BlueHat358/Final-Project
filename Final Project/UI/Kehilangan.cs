@@ -70,24 +70,33 @@ namespace Final_Project
         private void BtnCari_Click(object sender, EventArgs e)
         {
             int count = 0;
-            query = $"SELECT * FROM tb_barang WHERE nama_barang LIKE %{txtCari.Text}%";
-
-            koneksi.Open();
-            command = koneksi.CreateCommand();
-            command.CommandText = query;
-            reader = command.ExecuteReader();
-
-            while (reader.Read())
+            if(txtCari.Text == null)
             {
-                dgvBarang.Rows.Add();
-                dgvBarang[0, count].Value = reader["id_barang"].ToString();
-                dgvBarang[1, count].Value = reader["id_ruang"].ToString();
-                dgvBarang[2, count].Value = reader["jenis_barang"].ToString();
-                dgvBarang[3, count].Value = reader["nama_barang"].ToString();
-                dgvBarang[4, count].Value = reader["status"].ToString();
-                count++;
+                showData();
             }
-            koneksi.Close();
+            else
+            {
+                query = $"SELECT * FROM tb_barang WHERE nama_barang LIKE '%{txtCari.Text}%'";
+
+                koneksi.Open();
+                command = koneksi.CreateCommand();
+                command.CommandText = query;
+                reader = command.ExecuteReader();
+
+                dgvBarang.Rows.Clear();
+
+                while (reader.Read())
+                {
+                    dgvBarang.Rows.Add();
+                    dgvBarang[0, count].Value = reader["id_barang"].ToString();
+                    dgvBarang[1, count].Value = reader["id_ruang"].ToString();
+                    dgvBarang[2, count].Value = reader["jenis_barang"].ToString();
+                    dgvBarang[3, count].Value = reader["nama_barang"].ToString();
+                    dgvBarang[4, count].Value = reader["status"].ToString();
+                    count++;
+                }
+                koneksi.Close();
+            }
         }
 
         private void showData()
